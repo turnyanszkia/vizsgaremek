@@ -3,6 +3,7 @@ import axios from 'axios';
 import sha256 from 'js-sha256'; // Ha nem lenne telepítve, telepítsd: npm install js-sha256
 import './login.css';
 import { Link } from 'react-router-dom';
+import BackgroundVideo from '../components/background-video/BackgroundVideo';
 
 const Login = () => {
   // Állapotok létrehozása
@@ -12,7 +13,7 @@ const Login = () => {
   // Bejelentkezési logika
   const handleLogin = () => {
     console.log(loginName + " " + password);
-    
+
     const saltUrl = `http://localhost:5000/api/Login/SaltRequest/${loginName}`;
 
     // Kérés a salt-hoz
@@ -20,7 +21,7 @@ const Login = () => {
       .then((response) => {
         let salt = response.data;
         console.log(salt);
-        
+
         // Hash generálása
         let tmpHash = sha256(password + salt.toString());
 
@@ -38,12 +39,12 @@ const Login = () => {
             if (response.status === 200) {
               let user = response.data;
               console.log(user);
-              
+
               // Token és felhasználónév mentése sessionStorage-be
               sessionStorage.setItem("token", user.token);
               sessionStorage.setItem("loginName", loginName);
               alert("Sikeres bejelentkezés!");
-              
+
               // Átirányítás a játék oldalra
               window.location.href = "game.html";
             } else {
@@ -60,31 +61,34 @@ const Login = () => {
   };
 
   return (
-    <div className="content">
-      <div className="login-box">
-        <h2 className="text-light">Bejelentkezés</h2>
-        
-        <input
-          type="text"
-          placeholder="Felhasználónév"
-          value={loginName}
-          onChange={(e) => setLoginName(e.target.value)} // Állapot frissítése
-        />
-        
-        <input
-          type="password"
-          placeholder="Jelszó"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)} // Állapot frissítése
-        />
-        
-        <button type="button" onClick={handleLogin}>
-          Bejelentkezés
-        </button>
-        
-        <span className="text-light">
-          Nincs még fiókod? <Link to="/register">Regisztrálj</Link>
-        </span>
+    <div>
+      <BackgroundVideo />
+      <div className="content">
+        <div className="login-box">
+          <h2 className="text-light">Bejelentkezés</h2>
+
+          <input
+            type="text"
+            placeholder="Felhasználónév"
+            value={loginName}
+            onChange={(e) => setLoginName(e.target.value)} // Állapot frissítése
+          />
+
+          <input
+            type="password"
+            placeholder="Jelszó"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)} // Állapot frissítése
+          />
+
+          <button type="button" onClick={handleLogin}>
+            Bejelentkezés
+          </button>
+
+          <span className="text-light">
+            Nincs még fiókod? <Link to="/register">Regisztrálj</Link>
+          </span>
+        </div>
       </div>
     </div>
   );
