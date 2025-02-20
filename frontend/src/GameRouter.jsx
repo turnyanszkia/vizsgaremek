@@ -3,9 +3,9 @@ import Game from "./game/Game";
 import Register from "./register/Register";
 import Login from "./login/Login";
 import Ranglista from "./ranglista/Ranglista";
+// import LevelOne from "./level1/LevelOne";
 
 function PageRouter() {
-  
   return (
     <BrowserRouter>
       <Routes>
@@ -13,8 +13,10 @@ function PageRouter() {
         <Route path="/register" element={<Register />} />
         <Route path="/" element={<Login />} />
         <Route path="/ranklist" element={<Ranglista />} />
+        {/* <Route path="/" element={<LevelOne />} /> */}
       </Routes>
-    </BrowserRouter>)
+    </BrowserRouter>
+  );
 }
 
 export default PageRouter;
