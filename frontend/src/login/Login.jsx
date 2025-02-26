@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
 import axios from 'axios';
 import sha256 from 'js-sha256'; // Ha nem lenne telepítve, telepítsd: npm install js-sha256
@@ -10,11 +11,13 @@ const Login = () => {
   const [loginName, setLoginName] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigate = useNavigate();
+
   // Bejelentkezési logika
   const handleLogin = () => {
     console.log(loginName + " " + password);
 
-    const saltUrl = `http://localhost:5000/api/Login/SaltRequest/${loginName}`;
+    const saltUrl = `http://localhost:5004/api/Login/SaltRequest/${loginName}`;
 
     // Kérés a salt-hoz
     axios.post(saltUrl)
@@ -26,7 +29,7 @@ const Login = () => {
         let tmpHash = sha256(password + salt.toString());
 
         // Bejelentkezés kérés
-        const loginUrl = "http://localhost:5000/api/Login";
+        const loginUrl = "http://localhost:5004/api/Login";
         const body = {
           loginName: loginName,
           tmpHash: tmpHash,
@@ -46,7 +49,7 @@ const Login = () => {
               alert("Sikeres bejelentkezés!");
 
               // Átirányítás a játék oldalra
-              window.location.href = "game.html";
+              navigate("/game");
             } else {
               alert("Hiba történt a bejelentkezéskor!");
             }

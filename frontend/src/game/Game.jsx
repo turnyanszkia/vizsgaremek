@@ -1,15 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./game.css";
+import { useNavigate } from "react-router-dom";
 
 const Game = () => {
   const canvasRef = useRef(null);
   const audioRef = useRef(null);
   const [volume, setVolume] = useState(0.5);
   const [settingsVisible, setSettingsVisible] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
+    const localLoggedIn = authenticateUser();
+    setLoggedIn(localLoggedIn);
+    if(!localLoggedIn) navigate("/");
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
+    
 
     const platformok = [
       { x: 50, y: 350, width: 200, height: 20 },
@@ -181,6 +189,36 @@ const Game = () => {
       document.exitFullscreen();
     }
   };
+
+  function authenticateUser() {
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function isTouchingDoor(platformok, karakter) {
+    for (let i = 0; i < platformok.length; i++) {
+      const doorX = platformok[i].x + platformok[i].width / 2 - 50;
+      const doorY = platformok[i].y - 100;
+      const doorRightX = doorX + 100;
+      const doorRightY = doorY + 100;
+
+      if (isTouchingPoint(doorX, doorY, doorRightX, doorRightY, karakter.x, karakter.y) && isTouchingPoint(doorX, doorY, doorRightX, doorRightY, karakter.x + karakter.width, karakter.y)) {
+        return true;
+      }
+      return false;
+    }
+  }
+
+  function isTouchingPoint(x1, y1, x2, y2, examinedx, examinedy) {
+    if(x1 <examinedx && examinedx < x2 && y1 < examinedy && examinedy < y2){
+      return true;
+    }
+    return false;
+  }
 
   return (
     <div>
