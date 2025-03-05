@@ -1,0 +1,6 @@
+.character {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    background-color: darkred;
+}
