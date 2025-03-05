@@ -1,0 +1,116 @@
+body {
+  background-color: white;
+  margin: 0;
+  overflow: hidden;
+}
+
+.game-container {
+  background-color: lightgray !important;
+  border: 2px solid red;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.character {
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+}
+
+.ground, .platform {
+  position: absolute;
+  height: 10px;
+  background-color: black;
+}
+
+.ground {
+  width: 100%;
+  bottom: 0;
+}
+
+.platform.start {
+  bottom: 50px;
+  left: 0;
+  width: 100%;
+}
+
+.platform.middle {
+  top: calc(40vh + 200px);
+  left: 0;
+  width: calc(100% - 300px);
+}
+
+.platform.end {
+  top: 20vh;
+  left: 300px;
+  width: calc(100% - 100px);
+}
+
+.platform.left-lower {
+  top: 47vh;
+  left: 50px;
+  width: 100px;
+}
+
+.platform.left-upper {
+  top: 31vh;
+  left: 50px;
+  width: 100px;
+}
+
+.platform.right-lower {
+  top: 80vh;
+  right: 50px;
+  width: 100px;
+}
+
+.platform.right-upper {
+  top: 65vh;
+  right: 50px;
+  width: 100px;
+}
+
+.spike {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 60px solid red;
+}
+
+.spike.inverted {
+  border-bottom: none;
+  border-top: 60px solid red;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+}
+
+.goal {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  top: 10vh;
+  right: 50px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.cannon {
+  position: absolute;
+  width: 40px;
+  height: 20px;
+  background-color: black;
+  top: calc(40vh + 200px - 20px);
+  left: 0px;
+}
+
+.projectile {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+}
