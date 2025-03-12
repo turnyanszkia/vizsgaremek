@@ -3,7 +3,7 @@ import Game from "./game/Game";
 import Register from "./register/Register";
 //import Login from "./login/Login";
 import Ranglista from "./ranglista/Ranglista";
-import LevelOne from "./level1/GameContainer/GameContainer";
+import GameContainer2 from "./level1/GameContainer/GameContainer2";
 
 function PageRouter() {
   return (
@@ -13,7 +13,7 @@ function PageRouter() {
         <Route path="/register" element={<Register />} />
        {/* <Route path="/" element={<Login />} /> */}
         <Route path="/ranklist" element={<Ranglista />} />
-        <Route path="/" element={<LevelOne />} />
+        <Route path="/" element={<GameContainer2 />} />
       </Routes>
     </BrowserRouter>
   );
