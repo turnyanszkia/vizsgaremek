@@ -1,11 +1,14 @@
 body {
-  background-color: white;
+  background-image: url('hatterkep.jpg');
+  background-size: cover; /* A kép kitölti a teljes képernyőt */
+  background-position: center; /* A kép középre van igazítva */
+  background-repeat: no-repeat; /* A kép nem ismétlődik */
   margin: 0;
   overflow: hidden;
 }
 
+
 .game-container {
-  background-color: lightgray !important;
   border: 2px solid red;
   width: 100vw;
   height: 100vh;
@@ -15,21 +18,29 @@ body {
 }
 .character {
   width: 50px;
-  height: 50px;
-  background-color: blue;
+  height: 60px;
+  background-image: url('knigth.gif'); /* GIF beállítása háttérként */
+  background-size: cover; /* A kép kitölti az egész karakter méretét */
+  background-position: center; /* Kép középre igazítása */
+  background-repeat: no-repeat; /* Nem ismétlődik */
   position: absolute;
 }
+
 
 .ground, .platform {
   position: absolute;
   height: 10px;
-  background-color: black;
+  background-image: url('föld.png');
+  background-size: auto 100%; /* A kép teljes magasságban kitölti a sávot, szélessége az eredeti */
+  background-repeat: repeat-x; /* Vízszintesen ismétlődik */
 }
 
 .ground {
-  width: 100%;
+  width: 80%; /* A föld szélessége állítható */
+  left: 10%; /* Az elhelyezés */
   bottom: 0;
 }
+
 
 .platform.start {
   bottom: 50px;
@@ -50,63 +61,100 @@ body {
 }
 
 .platform.left-lower {
+  position: absolute;
   top: 47vh;
   left: 50px;
-  width: 100px;
+  width: 120px;
+  height: 50px;
+  background-image: url('mosslog.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent; /* Biztosítja, hogy ne legyen háttérszín */
 }
 
 .platform.left-upper {
+  position: absolute;
   top: 31vh;
   left: 50px;
-  width: 100px;
+  width: 120px;
+  height: 50px;
+  background-image: url('log.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent; /* Biztosítja, hogy ne legyen háttérszín */
 }
 
 .platform.right-lower {
-  top: 80vh;
+  position: absolute;
+  top: 78vh;
   right: 50px;
-  width: 100px;
+  width: 120px;
+  height: 50px;
+  background-image: url('log.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent; /* Biztosítja, hogy ne legyen háttérszín */
 }
 
 .platform.right-upper {
-  top: 65vh;
+  position: absolute;
+  top: 55vh;
   right: 50px;
-  width: 100px;
+  width: 120px;
+  height: 50px;
+  background-image: url('mosslog.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent; /* Biztosítja, hogy ne legyen háttérszín */
 }
+
+
+
 
 .spike {
   position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  border-bottom: 60px solid red;
+  width: 60px; /* A négyzet szélessége */
+  height: 60px; /* A négyzet magassága */
+  background: url('spikebox.png') no-repeat center center;
+  background-size: cover;
 }
 
 .spike.inverted {
-  border-bottom: none;
-  border-top: 60px solid red;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
+  transform: rotate(180deg); /* A négyzet megfordítása */
 }
+
+
 
 .goal {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  background-color: red;
-  top: 10vh;
+  width: 100px;
+  height: 100px;
+  background-image: url('castle.gif'); /* Háttérkép beállítása */
+  background-size: cover; /* A kép kitölti a megadott méretet */
+  background-position: center; /* Kép középre igazítása */
+  background-repeat: no-repeat; /* Nem ismétlődik */
+  top: 11vh;
   right: 50px;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
+
 
 .cannon {
   position: absolute;
-  width: 40px;
-  height: 20px;
-  background-color: black;
-  top: calc(40vh + 200px - 20px);
-  left: 0px;
+  width: 100px;
+  height: 100px;
+  background-image: url('canon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: calc(35vh + 200px - 20px);
+  left: -20px;
 }
+
+
 
 .projectile {
   position: absolute;

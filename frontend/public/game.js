@@ -1,4 +1,3 @@
-console.log("szia");
 (()=>{
     const _character = document.querySelector(".character");
     const spikes = document.querySelectorAll(".spike");
@@ -133,6 +132,3 @@ console.log("szia");
     gameLoop();
 })()
     
-
-
-
