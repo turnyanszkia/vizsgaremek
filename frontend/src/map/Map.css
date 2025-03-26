@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(registerbackground.png);
+
+  }
+  
+  /* A térkép konténere */
+  .map-container {
+    position: relative;
+    width: 80vw;
+    max-width: 800px;
+  }
+  
+  /* Maga a térkép */
+  .map {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 5px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  /* Városok gombjai */
+  .city-button {
+    position: absolute;
+    width: 5%;
+    height: 5%;
+    background-color: rgba(255, 0, 0, 0);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Hover effekt csak az ELÉRHETŐ városokra */
+  .city-button:not(.locked) {
+    background-color: rgba(81, 255, 0, 0.295);
+  }
+  
+  /* Zárolt városok */
+  .locked {
+    cursor: not-allowed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(194, 4, 4, 0.534);
+    border-radius: 50%;
+    width: 5%;
+    height: 5%;
+  }
+  
+  .locked svg {
+    width: 50%;
+    height: 50%;
+    fill: white;
+  }
+  
+  /* Locked message styling */
+  .locked-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    display: none; /* Hidden by default */
+  }
+  
+  .locked-message {
+    display: block;
+  }
+  
