@@ -4,7 +4,7 @@ import Register from "./register/Register";
 import Login from "./login/Login";
 import Ranglista from "./ranglista/Ranglista";
 import GameContainer2 from "./game/GameContainer2";
-import Map from "./map/Map"; // Importáltuk a Map komponenst
+import Map from "./map/Map";
 
 function PageRouter() {
   return (

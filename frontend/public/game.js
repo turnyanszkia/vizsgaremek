@@ -1,4 +1,3 @@
-console.log("sziaaa");
 
 (() => {
     const _character = document.querySelector(".character");
