@@ -49,7 +49,7 @@ const Login = () => {
               alert("Sikeres bejelentkezés!");
 
               // Átirányítás a játék oldalra
-              navigate("/game");
+              navigate("/map");
             } else {
               alert("Hiba történt a bejelentkezéskor!");
             }

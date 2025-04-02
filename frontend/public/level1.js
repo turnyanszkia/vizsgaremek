@@ -108,9 +108,9 @@ console.log("szia");
                 charRect.top < goalRect.bottom &&
                 charRect.bottom > goalRect.top
             ) {
-                if (navigate) {
-                    navigate("/game");
-                }
+                console.log("hi")
+                
+                window.location.href = "/game";
             }
         }
     }

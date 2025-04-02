@@ -1,7 +1,19 @@
 import { useEffect, useRef } from 'react';
-import './game.css'
+
 
 function GameContainer2(){
+    useEffect(() => {
+        // Dynamically import the CSS
+        import('./game.css');
+        
+        // Cleanup function to remove the CSS when component unmounts
+        return () => {
+          const stylesheet = document.querySelector('link[href*="game.css"]');
+          if (stylesheet) {
+            document.head.removeChild(stylesheet);
+          }
+        };
+      }, []);
     const loaded = useRef(false);
     useEffect(() => {
         if(loaded.current == false) {

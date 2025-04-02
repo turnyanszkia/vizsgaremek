@@ -107,9 +107,7 @@
                 charRect.top < goalRect.bottom &&
                 charRect.bottom > goalRect.top
             ) {
-                if (navigate) {
-                    navigate("/");
-                }
+                window.location.href = "/map";
             }
         }
     }

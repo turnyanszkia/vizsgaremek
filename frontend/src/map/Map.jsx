@@ -19,7 +19,7 @@ const App = () => {
 
       {/* Városok átlátszó gombjai */}
       <Link to="/game" className="city-button" style={{ top: "31%", left: "51%" }}></Link>
-      <Link to="/level1" className="city-button" style={{ top: "43%", left: "57%" }}></Link>
+      <Link to="/gamecontainer" className="city-button" style={{ top: "43%", left: "57%" }}></Link>
 
 
       {/* Zárolt városok */}
