@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# A projekt megfelelő futatásának a menete
+
+1.A legfrissebb veríóját az adatbázisunknak töltsük le a Trello-bol ,és tegyük be a phpMyadmin felületre és ez maradjon megnyitva.
+2.A CastlegameBackend-et is töltsük le de azt már a github-rol,majd ha ez meg van nem kell megynitnunk VisualStudioban,elegendö a mappáknál eljutnin a bin/Release/net8.0/castlegameBackend.exe file-t megnyitni és hagyni futni.
+3.A Frontendet is le kell töltenünk a vizsgaremek-main (1) néven szereplö filet,majd ezt meg kell nyitnunk VisualStudio Code-ban.
+4.Nyissunk egy terminaltés 'npm i' vel telepitjuk a szükséges modulokat.
+5.A terminálnál a bash funkciot válasszuk és be kell irnunk 3 kodot amik a következők (1.'cd vizsgaremek-main' 2.'cd frontend' 3.'npm run start')
+ezt követöen az alkalmazásunk megnyilik a böngészöben és a bejelentkezést láthajuk.(A felhasználó nevet és jelszót kérem ellenörizni az adatbáziban hogy biztos jót használnak,a jelszó minden esetben 'a',de a felhasználónév verzíótol függhet.)
 ## Available Scripts
 
 In the project directory, you can run:
